@@ -1,0 +1,469 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f5f5f5; /* Light gray background */
+  color: #333; /* Dark text for readability */
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+}
+
+.cruds {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* Header Styles */
+.head {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #2E5A88; /* Deep blue */
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.head h1 {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+}
+.head p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Input Section */
+.input {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.input input,
+.input button {
+  width: 100%;
+  height: 40px;
+  margin: 8px 0;
+  padding: 0 15px;
+  background-color: #f9f9f9;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+.input input:focus {
+  background-color: white;
+  border-color: #2E5A88;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(46, 90, 136, 0.2);
+}
+
+.input button {
+  background-color: #2E5A88; /* Teal */
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+.input button:hover {
+  background-color: #2E5A88;
+  transform: translateY(-2px);
+}
+
+.price {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.price input {
+  flex: 1;
+}
+#total {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 5px 10px;
+  background-color: #FF9800; /* Orange */
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
+#total::before {
+  content: 'Total: ';
+}
+
+/* Output Section */
+.output {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.searchblock {
+  margin-bottom: 20px;
+}
+#search {
+  width: 100%;
+  height: 40px;
+  padding: 0 15px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+#search:focus {
+  border-color: #2E5A88;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(46, 90, 136, 0.2);
+}
+
+.searchbtn {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.searchbtn button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #2E5A88; /* Deep blue */
+  border: none;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.searchbtn button:hover {
+  background-color: #1A4A6E;
+}
+/* Delete All Button Container */
+#deleteallbtn {
+  margin: 20px 0;
+  text-align: center; /* Center the button */
+}
+
+/* Button Styling */
+#deleteallbtn button {
+  width: 200px;
+  height: 45px;
+  background-color: #F44336; /* Red */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(244, 67, 54, 0.3);
+}
+
+/* Hover Animation */
+#deleteallbtn button:hover {
+  background-color: #D32F2F; /* Darker red */
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(244, 67, 54, 0.4);
+}
+
+/* Click Animation */
+#deleteallbtn button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(244, 67, 54, 0.3);
+}
+
+/* Pulse Warning Animation */
+@keyframes pulseWarning {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 900px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+
+  /* Hide the header row */
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 15px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  td {
+    text-align: left;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-weight: bold;
+    color: #aaa;
+  }
+}
+
+
+.pulse {
+  animation: pulseWarning 1.5s infinite;
+}
+button.delete {
+  background-color: #F44336;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(244, 67, 54, 0.3);
+}
+
+button.delete:hover {
+  background-color: #D32F2F;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(244, 67, 54, 0.4);
+}
+
+/* Table Styles */
+/* Enlarge the output container */
+.output {
+  background-color: white;
+  padding: 25px; /* Increased padding */
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(248, 247, 247, 0.1);
+  min-height: 400px; /* Minimum height */
+  margin-top: 20px;
+
+}
+
+/* Larger table with better spacing */
+table {
+  width: 100%;
+  border-collapse: separate; /* For smoother animations */
+  border-spacing: 0 10px; /* Space between rows */
+}
+
+/* Bigger table cells */
+th, td {
+  padding: 15px; /* Larger padding */
+  text-align: center;
+}
+th {
+  display: none;
+}
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+tr:hover {
+  background-color: #f0f0f0;
+}
+/* @media (max-width: 900px) {
+  .price {
+    flex-direction: column;
+    gap: 5px;
+  }
+  table {
+    font-size: 14px;
+    max-width: 300px;
+  }
+  th, td {
+    padding: 8px 5px;
+    
+  }
+  tr{
+    width: 200px;
+  }
+  .output{
+    
+    
+  }
+  /* ===== MOBILE RESPONSIVENESS ===== */
+/* @media (max-width: 900px) {
+  /* Stack table headers vertically */
+  /* table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  /* Convert table rows to cards */
+  /* tbody tr {
+    display: block;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  } */ 
+  
+  /* Hide table headers */
+  /* thead {
+    display: none;
+  } */
+  
+  /* Display cells as block elements with labels */
+  /* tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    text-align: right;
+    border-bottom: 1px solid #eee;
+  }
+   */
+  /* Add pseudo-labels for each cell */
+  /* tbody td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    text-align: left;
+    margin-right: 10px;
+    color: #2E5A88;
+  } */
+  
+  /* Special styling for action buttons */
+  /* td:nth-last-child(-n+2) {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+   */
+  /* Adjust button sizes */
+  /* .update, .delete {
+    padding: 6px 12px !important;
+    font-size: 14px !important;
+  } */
+  
+  /* Make search buttons stack vertically */
+  /* .searchbtn {
+    flex-direction: column;
+  } */
+/* } */
+/*
+/* ===== ENTRANCE ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Apply to sections */
+.head {
+  animation: fadeIn 0.8s ease-out;
+}
+.input {
+  animation: slideIn 0.6s ease-out 0.2s both;
+}
+.output {
+  animation: fadeIn 0.8s ease-out 0.4s both;
+}
+
+/* ===== INTERACTIVE ELEMENTS ===== */
+button {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table row hover */
+tr {
+  transition:#f0f0f0 0.2s ease;
+}
+tr:hover {
+  background-color: #f0f0f0 !important;
+}
+
+/* ===== NOTIFICATION ANIMATION ===== */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.success-pulse {
+  animation: pulse 1s ease;
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; height: 0; padding: 0; margin: 0; border: none; }
+}
+/* Action Buttons in Table */
+/* Update Button (Teal) */
+button.update {
+  background-color: #008080;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 128, 128, 0.3);
+}
+
+button.update:hover {
+  background-color: #006666;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 128, 128, 0.4);
+}
+button.delete {
+  background-color: #F44336; /* Red */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+  transition: 0.2s;
+}
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+.input input:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 3px rgba(46, 90, 136, 0.2);
+  border-color: #2E5A88 !important;
+}
+button.update:active, button.delete:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+/* Floating label effect (optional) */
+.input {
+  position: relative;
+}
+.input input:focus::placeholder {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+/* Add to CSS */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
